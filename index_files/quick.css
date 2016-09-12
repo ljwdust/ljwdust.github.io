@@ -1,0 +1,19 @@
+@charset "gb2312";
+/* 统一样式 */
+body { font-size:12px;  font-family: "microsoft yahei",Arial,Helvetica,sans-serif; font-weight: normal; font-style: normal; }
+.red { color:#F00; }
+.gray { color:#606060; }
+.strong { font-weight:bold; }
+
+/*注册页*/
+.float_wrap{ border-style: solid; border-width:0 1px 1px 1px; border-color: #d5d3d3; padding:10px 17px; height: 530px;}
+.float_time{ color: #5f5e5e; line-height: 30px;}
+.float_pic{ width: 200px; height: 255px; border:4px solid #fff; margin-bottom: 5px; overflow: hidden; margin:0 auto 5px auto;}
+.float_pic img{ width: 200px; height: 255px;}
+.float_intro{ width: 100%;}
+.float_intro h3{ font-size: 18px;}
+.float_intro h3 em{ color: #666; font-size: 12px; margin-left:10px;}
+.float_intro i{ font-style: normal; color: #666;}
+.float_intro td{ font-size: 12px; padding:2px 0; color: #333;}
+.float_weibo{ display: block; color: #fff; background: #ff4175; height: 33px; _height: auto; _padding:7px 0; text-align: center; line-height: 33px; font-size: 16px; margin-top: 5px;}
+.weibo_icon{ display: inline-block; width: 23px; height: 18px; overflow: hidden; background: url(../image/float_sina.png) left top no-repeat; margin-right: 5px; vertical-align: middle;}

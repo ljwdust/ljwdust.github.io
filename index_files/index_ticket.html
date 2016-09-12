@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0038)http://www.snh48.com/index_ticket.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>中国大型女子偶像组合SNH48——SNH48中国官方网站</title>
+<meta name="keywords" content="snh,48,SNH48,snh48,招募,报名,中国,官网,官方,网站,少女,组合,偶像,团体">
+<meta name="description" content="SNH48是全球华语区规模最大的偶像团体, 也是唯一基于互联网思维和参与感精神、O2O构架和&quot;可面对面偶像&quot;运营理念的近距离养成式造星平台。SNH48充分吸收亚洲女子偶像天团AKB48的模式特色和运营经验并对进行&quot;中国表达&quot;和&quot;接地气&quot;的本土化改造, 其发展目标是在全球十四亿中国人中甄选优才，充分运用互联网和社交网络时代最具想象力，创新性和前瞻性的造星理念和技术手段, 积极培育兼具音乐舞蹈和影视表演才艺的全方位偶像艺人, 全力打造健康向上、充满青春活力、具备国际影响力的全球华语区第一女子偶像团体，并使之成为互联网和社交传媒时代中国偶像文化和粉丝经济产业的新标杆。">
+<link rel="stylesheet" type="text/css" href="./base.css">
+
+<script type="text/javascript" src="./jquery-1.4.2.min.js"></script>
+<style>
+.ticket .gy_zb{height:90px; bottom:53px;}
+.ticket .gy_img{height:43px; bottom:5px;}
+</style>
+</head>
+<body>
+
+
+
+     <div class="ticket">
+            <div class="gy_xz"><a href="javascript:;" class="list_current">最新公演票务</a><a href="javascript:;">公演排期日历</a></div>
+            <div class="data_item" id="data_tickets">
+				<img src="./index_ticket_null.jpg" style="margin: 7px 0px 0px 12px; display: block; float: left;">
+            </div>
+       
+            <div class="data_item" style="display:none; margin-left:8px;">
+            <iframe frameborder="0" scrolling="no" src="./buy.html" width="226" height="285"></iframe>
+            </div>
+           
+           
+          <div class="gy_zb">
+           	<div class="i_title">公演直播<span class="i_t_eng">Video-Broadcasting</span></div>
+            <div class="ibox">
+                <div class="item"><a href="http://tieba.baidu.com/starshow/5000012" target="_blank">百度贴吧</a></div>
+                <div class="item"><a href="http://www.douyutv.com/56229?fromuid=520940" target="_blank">斗鱼直播</a></div>
+                <div class="item"><a href="http://v.qq.com/x/star/98191" target="_blank">腾讯视频</a></div>
+                <div class="item"><a href="http://live.bilibili.com/48" target="_blank">bilibili直播</a></div>
+                <div class="item"><a href="http://music.letv.com/izt/snh48/index.html" target="_blank">乐视直播</a></div>
+                <div class="item"><a href="http://a.wtopic.mtq.tvm.cn/wtopic/livetalk/index.htm?bindid=1847&amp;appid=wx15670746b7a7cd98&amp;token=ceca73efe351&amp;id=1507240720211d4720bd3b795e187f5ca0_1" target="_blank">微信PC直播</a></div>
+                <div class="item"><a href="http://musiczt.pptv.com/zt/2016/snh48/index.html" target="_blank">聚力直播</a></div>
+            </div>
+           </div>
+           <div class="gy_img">
+           	<a href="http://www.snh48.com/show_list.html" target="_blank"><img src="./gyjs.jpg"></a>
+            <a href="http://www.snh48.com/ticket_faq.html" target="_blank"><img class="ml5" src="./gpxz.jpg"></a>
+           </div>
+       
+       
+       </div>
+
+
+<script type="text/javascript">
+
+$(function(){
+  
+    $.post('gettickets.php',function(data){
+	    eval("var rs="+data);
+		 if(rs.length == 0){  
+	  $("#data_tickets").find("img").css('display','block');
+	  }else{
+		 addhtml(rs);
+		 }
+	
+	})
+	
+
+	$('.gy_xz a').hover(function(){
+
+		TabSelect(".gy_xz a", ".data_item", "list_current", $(this))
+
+	});
+
+	$('.gy_xz a').eq(0).trigger("click");
+   
+
+
+	function TabSelect(tab,con,addClass,obj){
+
+		var $_self = obj;
+
+		var $_nav = $(tab);
+
+		$_nav.removeClass(addClass),
+
+		$_self.addClass(addClass);
+
+		var $_index = $_nav.index($_self);
+
+		var $_con = $(con);
+
+		$_con.hide(),
+
+		$_con.eq($_index).show();
+
+	};
+	function addhtml(data){
+	var numresult=0;
+	var html=[];
+	//eval("var rs="+data);
+	$.each(data, function(key, result){
+	html.push("<div class='gy_"+result.team_id+"'>");
+	html.push("<ul>");
+	html.push("<li class='w14'>"+result.addtime+" "+result.title+"</li>");
+	html.push("<li class='tssm'>"+result.theme+"</li>");
+	if(result.acstatus==1){
+	html.push("<li class='s_vip'><div class='tick_super'><a href="+result.auction_url+" target='_blank'>超级VIP</a></div></li>");
+	}
+	html.push("<li>");
+	if(result.id!='690' && result.id!='691'){
+	if(result.vstatus==1){
+	html.push("<div class='tick_v'><a href="+result.vip_url+" target='_blank'>VIP座票</a></div> ")
+	}
+	if(result.cstatus==1){
+    html.push("<div class='tick_zu'><a href="+result.common_url+" target='_blank'>普通座票</a></div>")
+	}
+	if(result.sstatus==1){
+	html.push("<div class='tick_za'><a href="+result.stand_url+" target='_blank'>普通站票</a></div>")
+	}
+	}else if(result.id=='690' || result.id=='691'){
+	html.push("<div class='tick_te'><a href="+result.vip_url+" target='_blank'>特殊门票</a></div>")
+	}
+	html.push("</li><ul></div>");
+	numresult++;
+	})
+	//增加空一格和空两格的情况，显示不同的图片
+	if(numresult==2){
+		html.push('<img src="images/index_ticket_null1.jpg" style="margin:5px 0 0 12px;float:left;" />');
+	}
+	if(numresult==1){
+		html.push('<img src="images/index_ticket_null2.jpg" style="margin:5px 0 0 12px;float:left;" />');
+	}
+	$("#data_tickets").html(html.join(""));
+	}
+
+	
+
+});
+
+
+</script>
+
+
+
+
+
+</body></html>
